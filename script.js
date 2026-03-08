@@ -85,9 +85,22 @@ inp.addEventListener('input',()=>{
     let newUser = users.filter((user)=>{
         return user.name.startsWith(inp.value);
     })
+    
+    let errMsg = document.querySelector("small")
+    let cards = document.querySelector(".cards")
 
-    document.querySelector(".cards").innerHTML = "";
-    showUsers(newUser);
+    if(newUser.length == 0){
+    errMsg.removeAttribute("hidden");
+    errMsg.style.color = 'red'
+    cards.style.display = 'none'
+
+    }else{
+        document.querySelector(".cards").innerHTML = '';
+         showUsers(newUser);
+        errMsg.setAttribute('hidden','');
+      cards.style.removeProperty('display')
+    }
+    
     console.log(newUser)
 
 })
