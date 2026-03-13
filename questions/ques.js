@@ -19,6 +19,10 @@ let ans = revbuilt("Alfaz");
 
 
 // 2. Write a function to check if a string is a palindrome.
-
-
-f
+function checkIfPalindrom(str){
+    let originalStr = str;
+    let revStr = str.split('').reverse().join('');
+    if (originalStr.toLowerCase() === revStr.toLowerCase()) return "Palindrome"
+    else return "Not Palindrome";
+}
+let res = checkIfPalindrom("Radar");
