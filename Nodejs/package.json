@@ -1,7 +1,8 @@
 {
   "type": "commonjs",
   "dependencies": {
-    "lodash": "^4.17.23"
+    "lodash": "^4.17.23",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "eslint": "8.2.0",
