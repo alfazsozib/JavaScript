@@ -1,1 +1,7 @@
-GET http://localhost:5001/
+POST http://localhost:3000/token
+Content-Type: application/json
+
+{
+  "phone":"01304396916",
+  "password":"123456"
+}

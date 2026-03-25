@@ -25,4 +25,37 @@ function checkIfPalindrom(str){
     if (originalStr.toLowerCase() === revStr.toLowerCase()) return "Palindrome"
     else return "Not Palindrome";
 }
-let res = checkIfPalindrom("Radar");
+let res2 = checkIfPalindrom("Radar");
+
+
+// 3. Write a function to find the largest number in an array.
+// using built in function 
+function findLargeNumber(){
+    let arr = [3,1,5,7,9,10,4,6];
+    return Math.max(...arr);
+}
+// let res3 = findLargeNumber();
+
+// manual way 
+function findLargeNumberManual(arr){
+    let newitem = 0;
+    for(let i=0; i<arr.length-1;i++){
+        let current = arr[i];
+        let next = arr[i+1];
+        if(next>current){
+            current = next;
+            newitem = next;
+
+        }
+        else{
+            newitem = current;
+            next = current;
+        }
+    }
+
+    return newitem;
+}
+
+let arr = [3,1,5,7,9,10,4,6,50,5,34,67,33,90,1,4,5,2,1];
+let res3 = findLargeNumberManual(arr)
+console.log(res3);

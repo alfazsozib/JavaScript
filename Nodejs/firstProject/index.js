@@ -8,8 +8,8 @@
 const http = require("http");
 const url = require("url");
 const {handleReqRes} = require("./helpers/handleReqRes")
-
-
+const environment = require("./helpers/environment")
+const data = require('./lib/data');
 
 // app object - module scaffolding
 const app = {};
@@ -20,11 +20,33 @@ app.config = {
 };
 
 
+// testing file system 
+// @todo pore muche dibo 
+data.create('test','newFile', {'name':"Bangladesh", "lang":"bangla"}, function(err){
+    // console.log('Error was', err);
+})
+
+// to read file 
+data.read('test','newFile', function(err,data){
+    // console.log('Error was', data);
+})
+
+
+// to update file 
+data.update('test','newFile', {'name':'Englandesh','lang':'English'},(err)=>{
+    console.log(err);
+})
+
+// delete existing file 
+data.delete('test', 'newFile', (err)=>{
+    // console.log(err);
+})
+
 // create server
 app.createServer = () =>{
     const server = http.createServer(app.handleReqRes);
-    server.listen(app.config.port, ()=>{
-        console.log(`Listening to port ${app.config.port}`)
+    server.listen(environment.port, ()=>{
+        console.log(`Listening to port ${environment.port}`)
     });
 }
 
